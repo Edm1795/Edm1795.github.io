@@ -1,11 +1,14 @@
-h1 {color:green; font-family:arial; font-size: 20px}
+h1 {color:white; font-family:arial; font-size: 20px}
+
 .header {
+  
   box-sizing: border-box;
-  padding: 15px;
-  border: 10px;
-  margin: 20px;
+  margin-top: 20px;
+  padding: 10px;
   text-align: center;
   background: #00008B;
-  opacity: 0.5;
+  opacity: 1;
   color: white;
-  font-size: 30px; }
+  font-size: 30px; 
+
+}
