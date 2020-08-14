@@ -1,5 +1,7 @@
 h1 {color:white; font-family:arial; font-size: 20px}
 
+body {margin:0}
+
 .header {
   
   box-sizing: border-box;
