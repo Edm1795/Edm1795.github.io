@@ -16,5 +16,5 @@ body {margin:0}
 }
 
 @media (min-width: 320px) and (max-width: 480px){
-  ul {font-size: 30px}
+  ul {width: 45%}
 }
