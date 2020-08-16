@@ -1,9 +1,6 @@
-@media (min-width : 320px) and (max-width: 991px) {
 
-  body {
-    background-color: blue;
-  }
-}
+@media (min-width: 320px) and (max-width: 480px){
+  ul {font-size: 40px}
 
 
 
