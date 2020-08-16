@@ -14,3 +14,7 @@ body {margin:0}
   font-size: 30px; 
 
 }
+
+@media (min-width: 230px) and (max-width: 250px){
+  ul {font-size: 30px}
+}
