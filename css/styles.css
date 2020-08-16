@@ -1,11 +1,5 @@
 @media (min-width : 320px) and (max-width: 991px) {
-  #p1 {
-    width: 30%;
-  }
-  #p2 {
-    width: 100px;
-    height: 100px;
-  }
+
   body {
     background-color: blue;
   }
