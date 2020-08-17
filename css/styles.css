@@ -16,7 +16,7 @@ body {margin:0}
 }
 
 @media (min-width: 200px) and (max-width: 420px){
-  ul {font-size: 70px;}
-  .header {font-size: 50px}
+  ul {font-size: 50px;}
+  .header {font-size: 60px}
 }
 
