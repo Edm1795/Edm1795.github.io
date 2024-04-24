@@ -10,4 +10,4 @@
   clear: both;
 }
 
-p {padding: 10px; border: 2px solid red;}
+p {padding: 10px; border: 2px solid red;border-radius: 5px;}
