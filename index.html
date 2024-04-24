@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  
+<head>
+  
+  <meta charset="utf-8">
+  <title>Python Notes</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</head>
+  
+<body>
+	
+<div class = "mainheader">
+  <h1>Python Programming Notes</h1>
+  </div> 
+
+<div class="row">
+  <div class="column"></div>
+  <div class="column"></div>
+
+    
+<pre><span></span><code>
+<p style="padding: 10px; border: 2px solid red;">
+def getInventoryFile():
+
+    # Get inventory file and read into a dictionary KEY: 
+product code, VALUE: number of items left on shelf.
+    inventoryFile = 'inventory.txt'
+    #input('Please input title of your inventory file here:')
+    
+    inventoryDict = {}
+    
+    with open(inventoryFile,'r') as f:
+        for line in f:          
+            line = line.split('#')             
+</code></pre></p>
+  
+
+
+  
+
+</body>
+</html>
