@@ -1,53 +1,112 @@
 <!doctype html>
 <html>
-  
+
 <head>
-  
-  <meta charset="utf-8">
-  <title>Python Notes</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="utf-8">
+    <title>Python Notes</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
 </head>
-  
+
 <body>
-	
-<div class = "mainheader">
-  <h1>Python Programming Notes</h1>
-  </div> 
 
-<div class="row">
-  <div class="column"></div>
-  <div class="column">
+    <header>
 
-	  	<pre><span></span><code>
-<p>
-def getInventoryFile():
+        <div class="mainheader">
+            <h1>Python Programming Notes</h1>
+        </div>
 
-    # Get inventory file and read into a dictionary KEY: product code, VALUE: number of items left on shelf.
-    inventoryFile = 'inventory.txt'
-    #input('Please input title of your inventory file here:')
+    </header>
+     
+    <div class="row">
+        <div class="navigation-column" style="background-color:#112233;">
+            <p>first column</p>
+
+        </div>
+
+        <div class="content-column" style="background-color:#113355;">
+            <section>
+                <header>
+                    <h2>Opening a File and Reading its Contents</h2>
+                </header>
+                <pre>
+                <span></span>
+                <code>
+                <p>
+                    def getInventoryFile():
+
+                       # Get inventory file and read into a dictionary KEY: product code, VALUE: number of items left on shelf.
+
+                       inventoryFile = 'inventory.txt'
     
-    inventoryDict = {}
+                       inventoryDict = {}
     
-    with open(inventoryFile,'r') as f:
-        for line in f:          
-            line = line.split('#')  
-	</p>
-</code></pre>
+                        with open(inventoryFile,'r') as f:
+                            for line in f:          
+                                line = line.split('#')  
+	                   </p>
+                </code></pre>
 
-	  
-  </div>
+            </section>
+
+            <section>
+                <header>
+                    <h2>A List of Functions and Arguments</h2>
+                </header>
+                <pre>
+                <span></span>
+                <code>
+                    <p>
+                        # bundling functions into a list or dictionary and then calling the functions from the list
+
+                        # set of functions
+                        def func1(text):
+                        print(text)
+                        def func2(text):
+                        print(text)
+                        def func3(text):
+                        print(text)
+                        def newFunc():
+                        print('newfunc')
+
+                        # List of lists holding pointers to each function and the argument. [[functionHere,argument here],[...]]
+                        list1=[[func1,'argument for func1'],[func2,'argument for func2'],[func3,'argument for func3',]]
 
 
-</div>
-    
+                        # access functions through the list of lists [[functionHere,argumentHere],[functionHere,argumentHere]]
+                        print('\nlist calls')
+                        for list in list1: # access the list in the list
+                        list[0](list[1]) # access each item in the internal list
 
-  
+                        # Dictionary version: note you can not have duplicate keys in a dict which will be a problem when sequencing function calls
+                        funcDict={func1: "func1",func2: "func2",func3: "func3"}
+
+                        print(funcDict)
+
+                        print('dictionary calls here:')
+                        for k,v in funcDict.items():
+                        k(v)
+                    </p>
+                </code></pre>
+
+            </section>
 
 
-  
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
 
 </body>
 </html>
