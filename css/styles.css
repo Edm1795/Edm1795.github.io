@@ -1,13 +1,23 @@
-.column {
-  float: left;
-  width: 50%;
+.navigation-column {
+    float: left;
+    width: 20%;
 }
+
+.content-column {
+    float: left;
+    width: 80%;
+}
+
 
 /* Clear floats after the columns */
 .row:after {
-  content: "";
-  display: table;
-  clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
-p {padding: 10px; border: 2px solid red;border-radius: 5px;}
+p {
+    padding: 10px;
+    border: 2px solid red;
+    border-radius: 10px;
+}
