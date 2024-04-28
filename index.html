@@ -5,9 +5,9 @@
 
     <meta charset="utf-8">
     <title>Python Notes</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="CSS/Styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link href="css/prism.css" rel="stylesheet" />
 
 </head>
 
@@ -16,11 +16,11 @@
     <header>
 
         <div class="mainheader">
-            <h1>Python Programming Notes</h1>
+            <h1>Python Programming and Webdesign Notes</h1>
         </div>
 
     </header>
-     
+
     <div class="row">
         <div class="navigation-column" style="background-color:#112233;">
             <p>first column</p>
@@ -32,23 +32,17 @@
                 <header>
                     <h2>Opening a File and Reading its Contents</h2>
                 </header>
-                <pre>
-                <span></span>
-                <code>
-                <p>
-                    def getInventoryFile():
+                <pre> <code class="language-python"><p>def getInventoryFile():
+                                                       
+# Get inventory file and read into a dictionary KEY: product code, VALUE: number of items left on shelf.
 
-                       # Get inventory file and read into a dictionary KEY: product code, VALUE: number of items left on shelf.
-
-                       inventoryFile = 'inventory.txt'
+    inventoryFile = 'inventory.txt'
     
-                       inventoryDict = {}
+    inventoryDict = {}
     
-                        with open(inventoryFile,'r') as f:
-                            for line in f:          
-                                line = line.split('#')  
-	                   </p>
-                </code></pre>
+    with open(inventoryFile,'r') as f:
+        for line in f:          
+            line = line.split('#') </p></code></pre>
 
             </section>
 
@@ -56,57 +50,106 @@
                 <header>
                     <h2>A List of Functions and Arguments</h2>
                 </header>
-                <pre>
-                <span></span>
-                <code>
-                    <p>
-                        # bundling functions into a list or dictionary and then calling the functions from the list
+                <pre><code class="language-python"><p> # bundling functions into a list or dictionary and then calling the functions from the list
 
-                        # set of functions
-                        def func1(text):
-                        print(text)
-                        def func2(text):
-                        print(text)
-                        def func3(text):
-                        print(text)
-                        def newFunc():
-                        print('newfunc')
+# set of functions
+def func1(text):
+    print(text)
 
-                        # List of lists holding pointers to each function and the argument. [[functionHere,argument here],[...]]
-                        list1=[[func1,'argument for func1'],[func2,'argument for func2'],[func3,'argument for func3',]]
+def func2(text):
+    print(text)
+
+def func3(text):
+    print(text)
+
+def newFunc():
+    print('newfunc')
+
+# List of lists holding pointers to each function and the argument. [[functionHere,argument here],[...]]
+list1=[[func1,'argument for func1'],[func2,'argument for func2'],[func3,'argument for func3',]]
 
 
-                        # access functions through the list of lists [[functionHere,argumentHere],[functionHere,argumentHere]]
-                        print('\nlist calls')
-                        for list in list1: # access the list in the list
-                        list[0](list[1]) # access each item in the internal list
+# access functions through the list of lists [[functionHere,argumentHere],[functionHere,argumentHere]]
+print('\nlist calls')
+for list in list1: # access the list in the list
+    list[0](list[1]) # access each item in the internal list
 
-                        # Dictionary version: note you can not have duplicate keys in a dict which will be a problem when sequencing function calls
-                        funcDict={func1: "func1",func2: "func2",func3: "func3"}
+# Dictionary version: note you can not have duplicate keys in a dict which will be a problem when sequencing function calls
+funcDict={func1: "func1",func2: "func2",func3: "func3"}
 
-                        print(funcDict)
+print(funcDict)
 
-                        print('dictionary calls here:')
-                        for k,v in funcDict.items():
-                        k(v)
-                    </p>
-                </code></pre>
+print('dictionary calls here:')
+for k,v in funcDict.items():
+    k(v)
+</p></code></pre>
+
+            </section>
+
+            <section>
+                <header>
+                    <h2>VS Code Keyboard Shortcuts</h2>
+                </header>
+
+                <ul>
+                    - Dedent (outdent): shift + tab
+                </ul>
+
+
+            </section>
+
+            <section>
+                <header>
+                    <h2>Code Highlighting: Inserting prism.js into your website</h2>
+                </header>
+
+                <ul type="square">
+                    <li> Download the prism.js code at prismjs.com</li>
+                    <li> Click the download button</li>
+                    <li> Select the programming languages you will be writing about</li>
+                    <li> Click both download JS and download CSS at the bottom of the page</li>
+                    <li> Insert those downloads into your CSS and JS folders for your website</li>
+                    <li> link those files inside your HTML file</li>
+                    <li> <indent><code>link href="css/prism.css" rel="stylesheet" </code></indent></li>
+                    <li> <code><script src="scripts/prism.js"></script></code></li>
+                    <li> Specify where this code is run inside your code tag:
+                          <li>  - <code> <code class="language-python"> </code></li>
+</ul>
+
+
+            </section>
+
+            <section>
+                <header>
+                    <h2>VS Code: Live Server Update Issues</h2>
+                </header>
+
+                <ul>
+                    <li>Ensure autosave is enabled</li>
+                    <li>File menu, select autosave</li>
+                    <li>Set default browser</li>
+                    <li>Open settings</li>
+                    <li>SearchL  liveServer.settings.CustomBrowser</li>
+                    <li>Open menu and choose your browser</li>
+                    <li><indent><code>link href="css/prism.css" rel="stylesheet" </code></indent></li>
+                    <li><code><script src="scripts/prism.js"></script></code></li>
+                    <li>Specify where this code is run inside your code tag:
+                          <li>  - <code> <code class="language-python"> </code></li>
+</ul>
+
 
             </section>
 
 
 
-
         </div>
-
-
     </div>
 
 
 
 
 
-
+    <script src="scripts/prism.js"></script>
 
 </body>
 </html>
