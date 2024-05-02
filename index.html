@@ -53,6 +53,7 @@
                 <pre><code class="language-python"><p> # bundling functions into a list or dictionary and then calling the functions from the list
 
 # set of functions
+
 def func1(text):
     print(text)
 
@@ -66,15 +67,18 @@ def newFunc():
     print('newfunc')
 
 # List of lists holding pointers to each function and the argument. [[functionHere,argument here],[...]]
+
 list1=[[func1,'argument for func1'],[func2,'argument for func2'],[func3,'argument for func3',]]
 
 
 # access functions through the list of lists [[functionHere,argumentHere],[functionHere,argumentHere]]
+
 print('\nlist calls')
 for list in list1: # access the list in the list
     list[0](list[1]) # access each item in the internal list
 
 # Dictionary version: note you can not have duplicate keys in a dict which will be a problem when sequencing function calls
+
 funcDict={func1: "func1",func2: "func2",func3: "func3"}
 
 print(funcDict)
@@ -108,16 +112,27 @@ for k,v in funcDict.items():
                     <li> Click the download button</li>
                     <li> Select the programming languages you will be writing about</li>
                     <li> Click both download JS and download CSS at the bottom of the page</li>
-                    <li> Insert those downloads into your CSS and JS folders for your website</li>
-                    <li> link those files inside your HTML file</li>
-                    <li> <indent><code>link href="css/prism.css" rel="stylesheet" </code></indent></li>
-                    <li> <code><script src="scripts/prism.js"></script></code></li>
-                    <li> Specify where this code is run inside your code tag:
-                          <li>  - <code> <code class="language-python"> </code></li>
+                    <li> Insert those downloads into your CSS and JS (scripts) folders for your website</li>
+                    <li> Link those files inside your HTML file</li>
+                    <li class="indent-one"> In the Head: <code>&ltlink href="css/prism.css" rel="stylesheet"&gt</code></li>
+                    <li class="indent-one"> At the end of the Body: <code>&ltscript src="scripts/prism.js"&gt</script></code></li>
+                    <li> Specify the language in the HTML in the code tag:
+                    <li class="indent-one">  <code>&ltcode class="language-python"&gt</code></li>
 </ul>
+            </section>
+
+            <section>
+                <header>
+                    <h2>HTML: Inserting HTML code Inline</h2>
+                </header>
+                <p>In order to insert very short fragments you should use escape characters for '<' although apparently not needed for '>'. 
+                    This snippet, <code>&ltlink href="css/prism.css" rel="stylesheet"&gt</code></li>, actually used 
+                    
+
 
 
             </section>
+
 
             <section>
                 <header>
@@ -129,18 +144,40 @@ for k,v in funcDict.items():
                     <li>File menu, select autosave</li>
                     <li>Set default browser</li>
                     <li>Open settings</li>
-                    <li>SearchL  liveServer.settings.CustomBrowser</li>
-                    <li>Open menu and choose your browser</li>
-                    <li><indent><code>link href="css/prism.css" rel="stylesheet" </code></indent></li>
-                    <li><code><script src="scripts/prism.js"></script></code></li>
-                    <li>Specify where this code is run inside your code tag:
-                          <li>  - <code> <code class="language-python"> </code></li>
+                    <li>Search: liveServer.settings.CustomBrowser</li>
+                    <li>Open menu and choose your default browser</li>
+                    
 </ul>
+            </section>
+            
+            <section>
+                <header>
+                    <h2>Setting up Pycharm</h2>
+                </header>
 
-
+                <p>
+                <a href="https://www.youtube.com/watch?v=W5p8v4yhxjk">Setting up a Project</a>    
+                <a href="https://www.youtube.com/watch?v=GTtpypvLoeY">Configuring a Python Interpreter</a>
+            </p>
+        
             </section>
 
+            
 
+            <section>
+                <header>
+                    <h2>Python: Running in the Terminal</h2>
+                </header>
+                
+                <ul>
+                    <li>Open the terminal</li>
+                    <li>Type py</li>
+                    <li class="indent-one">The Python prompt will then appear</li>
+                    
+</ul>
+            </section>
+
+            
 
         </div>
     </div>
