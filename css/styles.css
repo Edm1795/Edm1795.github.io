@@ -4,7 +4,7 @@ body {background-color:rgb(3, 22, 22);}
 
 .content-column {float: left;width: 80%;}
 
-white-space: pre-wrap;
+.pNavCol {padding: 10px; text-align: center; font-size: 30px ;}
 
 h1{
     padding: 10px;
