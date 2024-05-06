@@ -23,14 +23,25 @@
 
     <div class="row">
         <div class="navigation-column" style="background-color:#112233;">
-            <p>first column</p>
-
+            <p class="pNavCol">Contents</p>
+            <ul>
+                
+            <li><a href="#Opening a File">Opening a File</a></li>
+            <li><a href="#List of Functions">List of Functions</a></li>
+            <li><a href="#Code Highlighting with Prism">Code Highlighting with Prism</a></li>
+            <li><a href="#VS Code Live Server">VS Code Live Server</a></li>
+            <li><a href="#Setting up Pycharm">Setting up Pycharm</a></li>
+            <li><a href="#Running Python in the Terminal">Running Python in the Terminal</a></li>
+            <li><a href="#Pyscript: Running Python in a Browser">Pyscript: Running Python in a Browser</a></li>
+            <li><a href="#Running TKinter Live">Running TKinter Live</a></li>
+            <li><a href="#Customizing Prism.JS Stylings">Customizing Prism.JS Stylings</a></li>
+        </ul>
         </div>
 
         <div class="content-column" style="background-color:#113355;">
             <section>
                 <header>
-                    <h2>Opening a File and Reading its Contents</h2>
+                    <h2 id="Opening a File">Opening a File and Reading its Contents</h2>
                 </header>
                 <pre> <code class="language-python"><p>def getInventoryFile():
                                                        
@@ -48,7 +59,7 @@
 
             <section>
                 <header>
-                    <h2>A List of Functions and Arguments</h2>
+                    <h2 id="List of Functions">A List of Functions and Arguments</h2>
                 </header>
                 <pre><code class="language-python"><p> # bundling functions into a list or dictionary and then calling the functions from the list
 
@@ -104,11 +115,11 @@ for k,v in funcDict.items():
 
             <section>
                 <header>
-                    <h2>Code Highlighting: Inserting prism.js into your website</h2>
+                    <h2 id="Code Highlighting with Prism">Code Highlighting: Inserting prism.js into your website</h2>
                 </header>
 
                 <ul type="square">
-                    <li> Download the prism.js code at prismjs.com</li>
+                    <li> Download the prism.js code at <a href="https://prismjs.com/">Prismjs.com</a></li>
                     <li> Click the download button</li>
                     <li> Select the programming languages you will be writing about</li>
                     <li> Click both download JS and download CSS at the bottom of the page</li>
@@ -136,7 +147,7 @@ for k,v in funcDict.items():
 
             <section>
                 <header>
-                    <h2>VS Code: Live Server Update Issues</h2>
+                    <h2 id="VS Code Live Server">VS Code: Live Server Update Issues</h2>
                 </header>
 
                 <ul>
@@ -152,13 +163,15 @@ for k,v in funcDict.items():
             
             <section>
                 <header>
-                    <h2>Setting up Pycharm</h2>
+                    <h2 id = "Setting up Pycharm">Setting up Pycharm</h2>
                 </header>
 
-                <p>
-                <a href="https://www.youtube.com/watch?v=W5p8v4yhxjk">Setting up a Project</a>    
-                <a href="https://www.youtube.com/watch?v=GTtpypvLoeY">Configuring a Python Interpreter</a>
-            </p>
+               
+                    <ul>
+                <li><a href="https://www.youtube.com/watch?v=W5p8v4yhxjk">Setting up a Project</a>  </li> 
+                <li> <a href="https://youtu.be/W5p8v4yhxjk?t=372">Python virtual environments</a></li> 
+               <li> <a href="https://www.youtube.com/watch?v=GTtpypvLoeY">Configuring a Python Interpreter</a></li>
+            </ul>
         
             </section>
 
@@ -166,7 +179,7 @@ for k,v in funcDict.items():
 
             <section>
                 <header>
-                    <h2>Python: Running in the Terminal</h2>
+                    <h2 id="Running Python in the Terminal">Python: Running in the Terminal</h2>
                 </header>
                 
                 <ul>
@@ -177,7 +190,118 @@ for k,v in funcDict.items():
 </ul>
             </section>
 
+            <section>
+                <header>
+                    <h2 id="Pyscript: Running Python in a Browser">Python: Running in a Browser</h2>
+                </header>
+                
+                <ul>
+                    <li><a href="https://pyscript.net">Pyscript</a></li>
+                    
+</ul>
+            </section>
+
+            <section>
+                <header> 
+                    <h2 id="Running TKinter Live">Running TKinter Live in the Shell</h2>
+                </header>
+                <p>Root.attributes() : Playing with the transparency of a window. Adjust the -alpha
+                    variable between 0.1 and 1.0.
+                </p>
+                <ul>
+                    <li>Open a terminal and run python with the "py"</li>
+                    <li>Copy the code below and paste it into the terminal</li>
+                    <li>Play with the root windows transparency with -alpha attribute</li>
+                    <li><a href="https://wiki.tcl-lang.org/page/wm+attributes">TCl Documentation</a></li>
+                    
+</ul>
+                <pre> <code class="language-python"><p># Import module
+from tkinter import *
+
+# transparency, either through root.attributes or wm_attritbutes
+
+# Create object
+root = Tk()
+
+# Adjust size
+root.geometry("400x400")
+
+# Create transparent window
+root.attributes('-alpha', 0.1)
+
+### Using wm_attributes instead of simply attributes. Makes the window topmost
+root.wm_attributes('-topmost', True)
+
+# Makes the window transparent (exactly same effect as root.attributes)
+root.wm_attributes('-alpha', 0.9)
+
+root.wm_attributes('fullscreen',True)</p></code></pre>
+            </section>
+
+            <section>
+                <header>
+                    <h2 id="Customizing Prism.JS Stylings">Customizing Prism.JS Stylings</h2>
+                </header>
+                <p>You can use the code inspector to find the corresponding style property and also find the place in the source code which is given in 
+                    the upper right corner of the styling box in the insepctor. Then you can adjust the prism.css file. For example for styling the background colour 
+                    of the code snippet box adjust the "background" property near the front of the prism.css file.
+                </p>
+                
+                    
+                    
+
+            </section>
+
+            <section>
+                <header>
+                    <h2>HTML Tag Wrapping in VS Code</h2>
+                </header>
+                
+                <p>The HTMLTagWrap extension automattically wraps selected text in a paragraph tag, however it is then ready to receive typing of any other tag you need
+                </p>
+            </section>
+
+        </section>
+
+        <section>
+            <header>
+                <h2>Customizing Prism.JS CSS Stylings Part II</h2>
+            </header>
             
+            <p>Changing the background colour of the code snippet box somehow also added a shadow to the text called text-shadow. Simply turn this off by also setting
+                the text shadow to 0 px.
+            </p>
+        </section>
+    </section>
+
+    <section>
+        <header>
+            <h2>Customizing Prism.JS CSS Stylings Part II</h2>
+        </header>
+        
+        <p>Changing the background colour of the code snippet box somehow also added a shadow to the text called text-shadow. Simply turn this off by also setting
+            the text shadow to 0 px.
+        </p>
+    </section>
+</section>
+
+<section>
+    <header>
+        <h2>Customizing Prism.JS CSS Stylings Part II</h2>
+    </header>
+    
+    <p>Changing the background colour of the code snippet box somehow also added a shadow to the text called text-shadow. Simply turn this off by also setting
+        the text shadow to 0 px.
+    </p>
+</section>
+
+
+
+
+
+
+
+
 
         </div>
     </div>
