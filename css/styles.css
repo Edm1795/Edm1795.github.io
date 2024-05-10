@@ -4,9 +4,22 @@ body {background-color:rgb(3, 22, 22);}
 
 .content-column {float: left;width: 80%;}
 
-.pNavCol {padding: 10px; text-align: center; font-size: 30px ;}
+.navigation-column h2 {padding: 10px; text-align: center; font-size: 30px ;}
 
+.navigation-column a { line-height: 25px;}
+
+/* this CSS turns on the floating menu which overrides the column */
+
+/*  .floating-menu {
+  font-family: sans-serif;
+  background: yellowgreen;
+  padding: 5px;;
+  width: 130px;
+  z-index: 100;
+  position: fixed;
+}*/ 
 h1{
+    font-family: 'Open Sans Condensed', sans-serif;
     padding: 10px;
     text-align: center;
     background: #03241d;
@@ -15,6 +28,7 @@ h1{
   }
 
 h2{
+    font-family: 'Open Sans Condensed', sans-serif;
     padding: 10px;
     text-align: left;
     background: #1abc9c;
