@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="css/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/prism.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+    
 
 </head>
 
@@ -22,21 +24,25 @@
     </header>
 
     <div class="row">
-        <div class="navigation-column" style="background-color:#112233;">
-            <p class="pNavCol">Contents</p>
+        <nav class="navigation-column" style="background-color:#112233;">
+            <h2>Contents</h2>
             <ul>
                 
-            <li><a href="#Opening a File">Opening a File</a></li>
-            <li><a href="#List of Functions">List of Functions</a></li>
-            <li><a href="#Code Highlighting with Prism">Code Highlighting with Prism</a></li>
-            <li><a href="#VS Code Live Server">VS Code Live Server</a></li>
-            <li><a href="#Setting up Pycharm">Setting up Pycharm</a></li>
-            <li><a href="#Running Python in the Terminal">Running Python in the Terminal</a></li>
+            <li><a href="#Opening a File">Python: Opening a File</a></li>
+            <li><a href="#List of Functions">Python: List of Functions</a></li>
+            <li><a href="#Code Highlighting with Prism">Prism: Code Highlighting with Prism</a></li>
+            <li><a href="#VS Code Live Server">VS Code: Live Server</a></li>
+            <li><a href="#Setting up Pycharm">Pycharm: Setting up Pycharm</a></li>
+            <li><a href="#Running Python in the Terminal">Python: Running Python in the Terminal</a></li>
             <li><a href="#Pyscript: Running Python in a Browser">Pyscript: Running Python in a Browser</a></li>
-            <li><a href="#Running TKinter Live">Running TKinter Live</a></li>
-            <li><a href="#Customizing Prism.JS Stylings">Customizing Prism.JS Stylings</a></li>
+            <li><a href="#Running TKinter Live">TKinter: Running TKinter Live</a></li>
+            <li><a href="#Customizing Prism.JS Stylings">Prism: Customizing Prism.JS Stylings</a></li>
+            <li><a href="#Pycharm Tips">Pycharm: Tips</a></li>
+            <li><a href="#Automation Program Flow Kernal">Python: Automation Program Flow Kernal</a></li>
+            <li><a href="#Using Fonts in your HTML">HTML: Using Fonts in your HTML</a></li>
+            <li><a href="#Python: Taking a Screenshot">Python: Taking a Screenshot</a></li>
         </ul>
-        </div>
+    </nav>
 
         <div class="content-column" style="background-color:#113355;">
             <section>
@@ -79,14 +85,14 @@ def newFunc():
 
 # List of lists holding pointers to each function and the argument. [[functionHere,argument here],[...]]
 
-list1=[[func1,'argument for func1'],[func2,'argument for func2'],[func3,'argument for func3',]]
+list1=[[func1,'argument for func1'],[func2,'argument for func2'],[func3,'argument for func3',]] # Note: the function does NOT take its parantheses.
 
 
 # access functions through the list of lists [[functionHere,argumentHere],[functionHere,argumentHere]]
 
 print('\nlist calls')
 for list in list1: # access the list in the list
-    list[0](list[1]) # access each item in the internal list
+    list[0](list[1]) # access each item in the internal list: run the func (located at list[0]) with its arguments
 
 # Dictionary version: note you can not have duplicate keys in a dict which will be a problem when sequencing function calls
 
@@ -134,7 +140,7 @@ for k,v in funcDict.items():
 
             <section>
                 <header>
-                    <h2>HTML: Inserting HTML code Inline</h2>
+                    <h2>HTML: Inserting HTML code Inline and with Prism Formatting</h2>
                 </header>
                 <p>In order to insert very short fragments you should use escape characters for '<' although apparently not needed for '>'. 
                     This snippet, <code>&ltlink href="css/prism.css" rel="stylesheet"&gt</code></li>, actually used 
@@ -226,13 +232,13 @@ root = Tk()
 # Adjust size
 root.geometry("400x400")
 
-# Create transparent window
+# Create transparent window (transparency effects entire window including the top bar)
 root.attributes('-alpha', 0.1)
 
 ### Using wm_attributes instead of simply attributes. Makes the window topmost
 root.wm_attributes('-topmost', True)
 
-# Makes the window transparent (exactly same effect as root.attributes)
+# Makes the window transparent (exactly same effect as root.attributes,(transparency effects entire window including the top bar))
 root.wm_attributes('-alpha', 0.9)
 
 root.wm_attributes('fullscreen',True)</p></code></pre>
@@ -254,34 +260,95 @@ root.wm_attributes('fullscreen',True)</p></code></pre>
 
             <section>
                 <header>
-                    <h2>HTML Tag Wrapping in VS Code</h2>
+                    <h2 id="Pycharm Tips">Pycharm Tips</h2>
                 </header>
                 
-                <p>The HTMLTagWrap extension automattically wraps selected text in a paragraph tag, however it is then ready to receive typing of any other tag you need
-                </p>
+                <ul>
+                    <li>Alt shift e -- runs that single line the cursor is on</li>
+                </ul>
             </section>
 
         </section>
 
         <section>
             <header>
-                <h2>Customizing Prism.JS CSS Stylings Part II</h2>
+                <h2 id="Automation Program Flow Kernal">Automation Program Flow Kernal</h2>
+            </header>
+            <pre> <code class="language-python"><p>def main():
+    
+    taskSet1=TaskSet('h') # instantiate class of methods
+    run=True # set up while loop control variable
+    
+    while run: # loop for gathering input from user
+        
+        rawInput =input('Press 1 for move mouse and click; press 2 to finish and run') # prompt user
+
+        if rawInput=='1': # if user wants to add mouse moves
+
+            print('move mouse into position') # prompt user to move mouse into desired position
+            time.sleep(3) # give 3 seconds to user to move mouse
+            mousePos=ag.position() # get position of mouse as tuple (x,y)
+            funcList.append([taskSet1.moveMouse,mousePos,0.5,'y']) # append function call and arguments with delay and click
+
+        if rawInput=='2': # if user wants to complete building the sequence of clicks
+
+            run=False
+
+# Run the list of fucntion calls with arguments
+    for list in funcList:  # access the list in the list
+        list[0](list[1][0],list[1][1],list[2],list[3])  # access each item in the internal list and input arguments
+
+main()</p></code></pre>
+
+        </section>
+
+
+
+
+
+        <section>
+            <header>
+                <h2 id="Using Fonts in your HTML">Using Fonts in your HTML</h2>
             </header>
             
-            <p>Changing the background colour of the code snippet box somehow also added a shadow to the text called text-shadow. Simply turn this off by also setting
-                the text shadow to 0 px.
+            <p>Add a link to the font in the head, and specify which text receives that font in your CSS.<br>
+                <a href="https://fonts.google.com/">Embedding Fonts</a>
             </p>
+
+            <pre> <code class="language-html"><p>&lt;head>
+    &lt;link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
+&lt;/head></p></code></pre>
+            
+            <pre> <code class="language-css"><p>h1{
+    font-family: 'Open Sans Condensed', sans-serif;
+    padding: 10px;
+    text-align: center;
+    background: #03241d;
+    color: white;
+    font-size: 40px;
+    }</p></code></pre>
+
         </section>
     </section>
 
     <section>
         <header>
-            <h2>Customizing Prism.JS CSS Stylings Part II</h2>
+            <h2 id="Python: Taking a Screenshot">Python: Taking a Screenshot, Saving It, and Getting a Pixel Colour</h2>
         </header>
         
-        <p>Changing the background colour of the code snippet box somehow also added a shadow to the text called text-shadow. Simply turn this off by also setting
-            the text shadow to 0 px.
+        <p>Using the pillow (PIL) module to take a screenshot. (Note: PIL package is listed under its full name pillow in the package manager)
         </p>
+
+        <pre> <code class="language-python"><p>from PIL import ImageGrab
+
+screen = ImageGrab.grab() # Capture the screen image
+
+pixelColour = screen.getpixel((100, 100)) # Get the pixel colour value
+
+print(pixelColour) # Print the pixel colour
+
+screen.save('C:/Users/jswit/Downloads/scrImg.jpg', 'JPEG') # Save the image if desired
+</p></code></pre>
     </section>
 </section>
 
