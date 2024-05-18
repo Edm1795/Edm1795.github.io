@@ -41,6 +41,10 @@
             <li><a href="#Automation Program Flow Kernal">Python: Automation Program Flow Kernal</a></li>
             <li><a href="#Using Fonts in your HTML">HTML: Using Fonts in your HTML</a></li>
             <li><a href="#Python: Taking a Screenshot">Python: Taking a Screenshot</a></li>
+            <li><a href="#Python: List Comprehension">Python: List Comprehension</a></li>
+            <li><a href="#Python: Get Coordinates">Python: Get Coordinates</a></li>
+            <li><a href="#Python: Get Colour">Python: Get Colour Using Image Grab</a></li>
+            <li><a href="#Python: Get Colour Without Image Grab">Python: Get Colour Without Image Grab</a></li>
         </ul>
     </nav>
 
@@ -59,7 +63,9 @@
     
     with open(inventoryFile,'r') as f:
         for line in f:          
-            line = line.split('#') </p></code></pre>
+            line = line.split('#') 
+            inventoryDict[line[0]]=(line[1].strip()) 
+            return inventoryDict</p></code></pre>
 
             </section>
 
@@ -354,14 +360,270 @@ screen.save('C:/Users/jswit/Downloads/scrImg.jpg', 'JPEG') # Save the image if d
 
 <section>
     <header>
-        <h2>Customizing Prism.JS CSS Stylings Part II</h2>
+        <h2 id="Python: List Comprehension">Python: List Comprehension</h2>
     </header>
     
-    <p>Changing the background colour of the code snippet box somehow also added a shadow to the text called text-shadow. Simply turn this off by also setting
-        the text shadow to 0 px.
+    <p>This list comprehension doubles the numbers of a previous list and appends those numbers into a new list. Notice that the list comprehension automatically instantiates a new List
+        and appends the items by default. The variable "doubles" does not need to be instantiated as a list.
     </p>
+
+    <pre> <code class="language-python"><p>numbers = [1, 2, 3, 4, 5]    
+
+doubles = [num * 2 for num in numbers] # create a new list using list comprehension
+
+print(doubles)
+        
+</p></code></pre>
+
 </section>
 
+
+<section>
+    <header>
+        <h2 id="Python: Pickling">Python: Pickling</h2>
+    </header>
+    
+    <p>Pickle allows you to save and load Python data structures and code.
+    </p>
+
+    <pre> <code class="language-python"><p>import Pickle
+
+def saveFile(dataToSave, filename):
+    with open(filename, "wb") as fp:  # Pickling
+        pickle.dump(dataToSave, fp)
+        fp.close()
+
+
+def loadFile(filename):
+    with open(filename, "rb") as fp:  # Unpickling
+        return pickle.load(fp)
+    
+</p></code></pre>
+
+</section>
+
+<section>
+    <header>
+        <h2 id="Python: Get Coordinates">Python: Get Coordinates of the Mouse</h2>
+    </header>
+    
+    <p>Print off the mouses's coordinates every second.
+    </p>
+
+    <pre> <code class="language-python"><p>import time
+
+import pyautogui as ag        
+
+loop=True
+while loop:
+    time.sleep(1)
+    print(ag.position())        
+</p></code></pre>
+
+</section>
+
+
+<section>
+    <header>
+        <h2 id="Python: Get Colour">Python: Get Colour</h2>
+    </header>
+    
+    <p>Print off the colour value of the mouse's position every 2 seconds. Becareful you only use the main screen
+        if you are using two screens. The screenshot is onyl for the main screen.
+    </p>
+
+    <pre> <code class="language-python"><p>import pyautogui as ag
+from PIL import ImageGrab
+import time
+
+looping=True
+while looping:
+
+    # Get the screenshot of the screen
+    screenshot = ImageGrab.grab()
+
+    mousePos=ag.position()
+
+    pixelColour = screenshot.getpixel(mousePos)
+    print("Color value at coordinates",mousePos[0],mousePos[1], pixelColour)
+
+    time.sleep(2)
+        
+        
+</p></code></pre>
+
+</section>
+
+<section>
+    <header>
+        <h2 id="Python: Get Colour Without Image Grab">Python: Get Colour Without Image Grab</h2>
+    </header>
+    
+    <p>Print off the colour value of the mouse's position every 2 seconds. Becareful you only use the main screen
+        if you are using two screens. The screenshot is only for the main screen.
+    </p>
+
+    <pre> <code class="language-python"><p>import pyautogui as ag
+import time
+
+looping = True
+while looping:
+
+    mousePos = ag.position()  # get position of the mouse (x,y)
+    print(mousePos, ag.pixel(mousePos[0], mousePos[1]))  # Print the pixel value for the given mousePos ((x,y),(r,g,b))
+
+    time.sleep(2)      
+</p></code></pre>
+
+</section>
+
+
+
+
+
+<section>
+    <header>
+        <h2 id="">VS Code: Adding Code Snippets</h2>
+    </header>
+    
+    <p>Press ctrl space at the point in your code to open saved snippets.
+        To make a new snippet: File--Preferences--Add Snippet--Add global snippet
+    </p>
+
+
+</section>
+
+
+
+<section>
+    <header>
+        <h2 id="">Python: Basic TKinter Framework</h2>
+    </header>
+    
+    <p>Use the code below to set up a basic starting point for building an interface.
+    </p>
+
+    <pre> <code class="language-python"><p># colour picker crtl shift a, Type in colour
+
+from tkinter import *
+from ctypes import windll  # used for fixing blurry fonts on win 10 and 11 (also  windll.shcore.SetProcessDpiAwareness(1))
+
+class MainWindow:
+
+    def __init__(self, master):
+
+        # Master Window
+        self.master = master
+        self.master.title('AutoGui Ver. 0.0')
+        self.master.geometry("+150+500")  # position of the window in the screen (200x300) ("-3300+500")
+        self.master.geometry("500x400")  # set initial size of the root window (master) (1500x700);
+        # if not set, the frames will fill the master window
+        # self.master.attributes('-fullscreen', True)
+        screenWidth = self.master.winfo_screenwidth()
+        screenHeight = self.master.winfo_screenheight()
+
+        self.master.attributes("-topmost", True)
+
+        # Instantiate frames
+        self.frame0 = Frame(self.master, bd=5, padx=5, bg='#606266')  # Top long row
+        self.frame1 = Frame(self.master, bd=5, padx=5, bg='#2a2b2b')  # Side Column
+        self.frame2 = Frame(self.master, bd=5, padx=5, bg='#7E050C')  # Main frame
+
+        # Place frames
+        self.frame0.grid(row=0, column=0, columnspan=2, sticky="nsew")
+        self.frame1.grid(row=1, column=0, columnspan=1, sticky="nsew")
+        self.frame2.grid(row=1, column=1, columnspan=1, sticky="nsew")
+
+        # configure weighting of frames
+        self.master.grid_columnconfigure(0, weight=1)  # First int refers to column numberAllows frames to expand as master window expands; weight tells how much of the columns it takes
+        self.master.grid_columnconfigure(1, weight=7)  # weight gives 3 times as much column as the other columns
+        self.master.grid_rowconfigure(1, weight=1)  # rowconfigure states: first row takes 1 parts of space
+
+        self.frame1.grid_propagate(0)  # When adding widgets maintain weighting of frames
+        self.frame2.grid_propagate(0)
+
+        # sundries
+        self.counter=0 # counter used for determining state of toggle switch used in transparency button
+
+        frameWidth = 10  # Units are in characters not pixels
+
+        windll.shcore.SetProcessDpiAwareness(1)  # used for fixing blurry fonts on win 10 and 11
+
+
+        #  Entry widgets
+        self.entry = Entry(self.frame0, width=10)
+        self.entry.pack()
+
+        self.button = Button(self.frame1, text="Schedule", width=12, command=self.schedule)
+        self.button.pack()
+
+        self.button = Button(self.frame1, text="Screen Shot", width=12, command=self.setCount())
+        self.button.pack()
+
+
+    def schedule(self):
+        pass
+
+    def setCount(self):
+        pass
+
+def main():
+    global mainWin  # Global mainWin so as to access the mainWin from functions which may need to call method
+    root = Tk()
+    mainWin = MainWindow(root)
+
+    root.mainloop()
+
+main()     
+</p></code></pre>
+
+</section>
+
+
+<section>
+    <header>
+        <h2 id="">VS Code: Snippet Generator</h2>
+    </header>
+    
+    <p>Creating code snippets in VS code is much harder than one would think. Use this site to properly format the code for a snippet,
+        <a href="https://snippet-generator.app">VS Code: Snippet Generator.</a> The code example below gives the details needed to complete the snippet. Note adding the brace at the very opening and closing 
+        of the whole snippet.
+    </p>
+
+    <pre> <code class="language-JSON"><p>// in file 'Code/User/snippets/javascript.json'
+        {
+          "For Loop": {
+            "prefix": ["for", "for-const"],
+            "body": ["for (const ${2:element} of ${1:array}) {", "\t$0", "}"],
+            "description": "A for loop."
+          }
+        }     
+</p></code></pre>
+
+</section>
+
+<section>
+    <header>
+        <h2 id="">Tkinter: Using Lambdas in Button Commands</h2>
+    </header>
+    
+    <p>In Tkinter the buttons will normally need to be connected with a function. These functions get connected by the "command" option inside the Button class.
+        However if you simply type in the function with parantheses (and possibly also some arguments) then the function will get called at the moment the program 
+        creates the button. This is very likely not what you want. Rather we want buttons to call their function only when the user clicks the button, not at any othertime.
+        In order to make this the case, use lambda before the function as shown below. 
+
+        The second example below shows what to do with functions which do not take any arguments. They need to have their parantheses.
+    </p>
+
+    <pre> <code class="language-python"><p>button1=Button(self.frame1, text=description[0], width=12,command=lambda:self.schedule('This button works.'))
+button1.pack() # also make sure to put the pack() as a separate call not connected with the Button instantiation (not all on one line).
+
+# Another example
+self.createButton = Button(self.frame1, text="Create", width=12, command=lambda:self.createAutomation()) # Functions which do not take arguments must have their parantheses
+
+</p></code></pre>
+
+</section>
 
 
 
