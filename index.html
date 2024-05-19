@@ -45,6 +45,9 @@
             <li><a href="#Python: Get Coordinates">Python: Get Coordinates</a></li>
             <li><a href="#Python: Get Colour">Python: Get Colour Using Image Grab</a></li>
             <li><a href="#Python: Get Colour Without Image Grab">Python: Get Colour Without Image Grab</a></li>
+            <li><a href="#VS Code: Adding Code Snippets">VS Code Adding Code Snippets</a></li>
+            <li><a href="#Python: Basic TKinter Framework">Python: Basic TKinter Framework</a></li>
+            <li><a href="#TKinter: Using Lambdas">TKinter Using Lambdas</a></li>
         </ul>
     </nav>
 
@@ -65,7 +68,7 @@
         for line in f:          
             line = line.split('#') 
             inventoryDict[line[0]]=(line[1].strip()) 
-            return inventoryDict</p></code></pre>
+        return inventoryDict</p></code></pre>
 
             </section>
 
@@ -483,7 +486,7 @@ while looping:
 
 <section>
     <header>
-        <h2 id="">VS Code: Adding Code Snippets</h2>
+        <h2 id="VS Code: Adding Code Snippets">VS Code: Adding Code Snippets</h2>
     </header>
     
     <p>Press ctrl space at the point in your code to open saved snippets.
@@ -497,7 +500,7 @@ while looping:
 
 <section>
     <header>
-        <h2 id="">Python: Basic TKinter Framework</h2>
+        <h2 id="Python: Basic TKinter Framework">Python: Basic TKinter Framework</h2>
     </header>
     
     <p>Use the code below to set up a basic starting point for building an interface.
@@ -582,7 +585,7 @@ main()
 
 <section>
     <header>
-        <h2 id="">VS Code: Snippet Generator</h2>
+        <h2 id="VS Code: Snippet Generator">VS Code: Snippet Generator</h2>
     </header>
     
     <p>Creating code snippets in VS code is much harder than one would think. Use this site to properly format the code for a snippet,
@@ -604,21 +607,23 @@ main()
 
 <section>
     <header>
-        <h2 id="">Tkinter: Using Lambdas in Button Commands</h2>
+        <h2 id="TKinter: Using Lambdas">Tkinter: Using Lambdas in Button Commands</h2>
     </header>
     
     <p>In Tkinter the buttons will normally need to be connected with a function. These functions get connected by the "command" option inside the Button class.
         However if you simply type in the function with parantheses (and possibly also some arguments) then the function will get called at the moment the program 
         creates the button. This is very likely not what you want. Rather we want buttons to call their function only when the user clicks the button, not at any othertime.
         In order to make this the case, use lambda before the function as shown below. 
-
+ 
         The second example below shows what to do with functions which do not take any arguments. They need to have their parantheses.
     </p>
 
-    <pre> <code class="language-python"><p>button1=Button(self.frame1, text=description[0], width=12,command=lambda:self.schedule('This button works.'))
+    <pre> <code class="language-python"><p>
+# First Example (connecting a function which has parameters)
+button1=Button(self.frame1, text=description[0], width=12,command=lambda:self.schedule('This button works.'))
 button1.pack() # also make sure to put the pack() as a separate call not connected with the Button instantiation (not all on one line).
 
-# Another example
+# Another example (connecting functions which do not have parameters)
 self.createButton = Button(self.frame1, text="Create", width=12, command=lambda:self.createAutomation()) # Functions which do not take arguments must have their parantheses
 
 </p></code></pre>
