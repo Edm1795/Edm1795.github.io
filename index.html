@@ -48,6 +48,9 @@
             <li><a href="#VS Code: Adding Code Snippets">VS Code Adding Code Snippets</a></li>
             <li><a href="#Python: Basic TKinter Framework">Python: Basic TKinter Framework</a></li>
             <li><a href="#TKinter: Using Lambdas">TKinter Using Lambdas</a></li>
+            <li><a href="#PYcharm: Line Wrapping">PYcharm: Line Wrapping</a></li>
+            <li><a href="#Figuring Out the Source of Problems">Figuring Out the Source of Problems</a></li>
+            <li><a href="#Pycharm: Colour Picker">Pycharm: Colour Picker</a></li>
         </ul>
     </nav>
 
@@ -230,7 +233,7 @@ for k,v in funcDict.items():
                     <li><a href="https://wiki.tcl-lang.org/page/wm+attributes">TCl Documentation</a></li>
                     
 </ul>
-                <pre> <code class="language-python"><p># Import module
+                <pre><code class="language-python"><p># Import module
 from tkinter import *
 
 # transparency, either through root.attributes or wm_attritbutes
@@ -283,7 +286,7 @@ root.wm_attributes('fullscreen',True)</p></code></pre>
             <header>
                 <h2 id="Automation Program Flow Kernal">Automation Program Flow Kernal</h2>
             </header>
-            <pre> <code class="language-python"><p>def main():
+            <pre><code class="language-python"><p>def main():
     
     taskSet1=TaskSet('h') # instantiate class of methods
     run=True # set up while loop control variable
@@ -324,7 +327,7 @@ main()</p></code></pre>
                 <a href="https://fonts.google.com/">Embedding Fonts</a>
             </p>
 
-            <pre> <code class="language-html"><p>&lt;head>
+            <pre><code class="language-html"><p>&lt;head>
     &lt;link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
 &lt;/head></p></code></pre>
             
@@ -348,7 +351,7 @@ main()</p></code></pre>
         <p>Using the pillow (PIL) module to take a screenshot. (Note: PIL package is listed under its full name pillow in the package manager)
         </p>
 
-        <pre> <code class="language-python"><p>from PIL import ImageGrab
+        <pre><code class="language-python"><p>from PIL import ImageGrab
 
 screen = ImageGrab.grab() # Capture the screen image
 
@@ -370,7 +373,7 @@ screen.save('C:/Users/jswit/Downloads/scrImg.jpg', 'JPEG') # Save the image if d
         and appends the items by default. The variable "doubles" does not need to be instantiated as a list.
     </p>
 
-    <pre> <code class="language-python"><p>numbers = [1, 2, 3, 4, 5]    
+    <pre><code class="language-python"><p>numbers = [1, 2, 3, 4, 5]    
 
 doubles = [num * 2 for num in numbers] # create a new list using list comprehension
 
@@ -389,7 +392,7 @@ print(doubles)
     <p>Pickle allows you to save and load Python data structures and code.
     </p>
 
-    <pre> <code class="language-python"><p>import Pickle
+    <pre><code class="language-python"><p>import Pickle
 
 def saveFile(dataToSave, filename):
     with open(filename, "wb") as fp:  # Pickling
@@ -413,7 +416,7 @@ def loadFile(filename):
     <p>Print off the mouses's coordinates every second.
     </p>
 
-    <pre> <code class="language-python"><p>import time
+    <pre><code class="language-python"><p>import time
 
 import pyautogui as ag        
 
@@ -435,7 +438,7 @@ while loop:
         if you are using two screens. The screenshot is onyl for the main screen.
     </p>
 
-    <pre> <code class="language-python"><p>import pyautogui as ag
+    <pre><code class="language-python"><p>import pyautogui as ag
 from PIL import ImageGrab
 import time
 
@@ -466,7 +469,7 @@ while looping:
         if you are using two screens. The screenshot is only for the main screen.
     </p>
 
-    <pre> <code class="language-python"><p>import pyautogui as ag
+    <pre><code class="language-python"><p>import pyautogui as ag
 import time
 
 looping = True
@@ -506,7 +509,7 @@ while looping:
     <p>Use the code below to set up a basic starting point for building an interface.
     </p>
 
-    <pre> <code class="language-python"><p># colour picker crtl shift a, Type in colour
+    <pre><code class="language-python"><p># colour picker crtl shift a, Type in colour
 
 from tkinter import *
 from ctypes import windll  # used for fixing blurry fonts on win 10 and 11 (also  windll.shcore.SetProcessDpiAwareness(1))
@@ -593,7 +596,7 @@ main()
         of the whole snippet.
     </p>
 
-    <pre> <code class="language-JSON"><p>// in file 'Code/User/snippets/javascript.json'
+    <pre><code class="language-JSON"><p>// in file 'Code/User/snippets/javascript.json'
         {
           "For Loop": {
             "prefix": ["for", "for-const"],
@@ -623,9 +626,95 @@ main()
 button1=Button(self.frame1, text=description[0], width=12,command=lambda:self.schedule('This button works.'))
 button1.pack() # also make sure to put the pack() as a separate call not connected with the Button instantiation (not all on one line).
 
-# Another example (connecting functions which do not have parameters)
-self.createButton = Button(self.frame1, text="Create", width=12, command=lambda:self.createAutomation()) # Functions which do not take arguments must have their parantheses
+# Second Example (connecting functions which do not have parameters but still keeping the paranthesis)
+self.createButton = Button(self.frame1, text="Create", width=12, command=lambda:self.createAutomation()) # Functions which do not take arguments but still have parantheses
 
+# Final Example (connecting functions which do not have parameters and omitting parantheses as well as the lambda)
+self.createButton = Button(self.frame1, text="Create", width=12, command=self.createAutomation) # Functions which do not take arguments and omitting the parantheses
+
+</p></code></pre>
+
+</section>
+
+
+<section>
+    <header>
+        <h2 id="PYcharm: Line Wrapping">PYcharm: Line Wrapping</h2>
+    </header>
+    
+    <p>PYcharm's line wrapping settings are located at:</p>
+        <ul>
+            <li>Settings</li>
+            <li>Code Style</li>
+            <li>Hard Wrap</li>
+        </ul>
+    
+
+<section>
+    <header>
+        <h2 id="Figuring Out the Source of Problems">Figuring Out the Source of Problems</h2>
+    </header>
+    
+    <p>I had a problem with saving files in my Automation Project. The program was not saving content from any previously made work; it was only saving from the current state of the program. Yesterday's work for 
+        example would not be saved but today's work would be.
+    </p>
+
+</section>
+
+
+<section>
+    <header>
+        <h2 id="Pycharm: Colour Picker">Pycharm: Colour Picker</h2>
+    </header>
+    
+    <p>ctrl shift + a; search for "color"; choose color picker
+    </p>
+
+
+</section>
+
+
+<section>
+    <header>
+        <h2 id="">TKinter: Template for Posting Message and Getting Input</h2>
+    </header>
+    
+    <p>This template allows you to post a prompt or message and also get a response from the user.
+    </p>
+
+    <pre><code class="language-python"><p># Construct Labels
+automationLabel = Label(self.frame2, text="New Name", font=('Times 14'))  # Label(top, text="Add New Item", font=('Mistral 18 bold')).place(x=150, y=80)
+# editItemLabelTitle = Label(top, text=itemName, font=('Cambria 14'))
+
+# Grid Labels
+automationLabel.grid(row=1,column=1)  # "New Value",   Note: .grid cannot be placed as a single line code: Label(...).grid(..) as the .grid will actually return None to the program and casue an error
+
+automationEntry = Entry(self.frame2, width='10')
+automationEntry.grid(row=1, column=2)
+
+automationEntry.bind('<Return>', lambda event: renameItemProp(itemName)) # the item inside quotation marks gets the word 'return' inside < and >
+</p></code></pre>
+
+</section>
+
+<section>
+    <header>
+        <h2 id="">TKinter: Clearing Contents</h2>
+    </header>
+    
+    <p>
+    </p>
+
+    <pre><code class="language-python"><p>def clearSpeedoFrame(self):
+"""
+This method clears the main frame (frame2) of all its widgets holding all the speedometers;
+it also clears self.canvases list and the self.labels list so that new objects can be stored
+inside those lists.
+"""
+for widgets in self.frame2.winfo_children():
+    widgets.destroy()
+    self.canvases.clear()
+    self.labels.clear()    
 </p></code></pre>
 
 </section>
@@ -633,7 +722,44 @@ self.createButton = Button(self.frame1, text="Create", width=12, command=lambda:
 
 
 
+</section>
 
+<section>
+    <header>
+        <h2 id="">TKinter: A Script which Displays all Fonts</h2>
+    </header>
+    
+    <p><a href="https://stackoverflow.com/questions/39614027/list-available-font-families-in-tkinter">Script which displays all fonts in TKinter</a>
+    </p>
+
+    <pre> <code class="language-python"><p>     
+</p></code></pre>
+
+</section>
+
+
+<section>
+    <header>
+        <h2 id="">Python: Making Imports</h2>
+    </header>
+    
+    <h3>from x import *</h3> 
+       <p>The above syntax imports all items from a module but without giving a prefixed name to those items; this brings all items from the external module directly into the namespace so no prefix is needed; 
+        it does make for less explicit coding however and can lead to collisions in the namespace. </p>
+    <h3>import x as tk</h3>
+        <p>This gives the imported module its own prefixed name, in the above case, tk; when you need to use a function from that module you will write: tk.nameOfFunction</p>
+    <h3>from x import function1, function2, function3...</h3>
+        <p>The above syntax will import only the functions needed rather than filling the name space with all functions from the external module.</p>
+    <h3>import x</h3>
+        <p>The above method imports all functions from the module x and also requires a prefix of the same name of the module. In the above case like this: x.myFunction</p>
+        <a href="https://stackoverflow.com/questions/12270954/difference-between-import-x-and-from-x-import">Various answers to the question of imports</a>
+
+
+
+    <pre> <code class="language-python"><p>     
+</p></code></pre>
+
+</section>
 
 
 
