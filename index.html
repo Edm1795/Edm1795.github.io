@@ -29,7 +29,7 @@
             <ul>
                 
             <li><a href="#Opening a File">Python: Opening a File</a></li>
-            <li><a href="#List of Functions">Python: List of Functions</a></li>
+            <li><a href="#List Holding Functions">Python: List Holding Functions</a></li>
             <li><a href="#Code Highlighting with Prism">Prism: Code Highlighting with Prism</a></li>
             <li><a href="#VS Code Live Server">VS Code: Live Server</a></li>
             <li><a href="#Setting up Pycharm">Pycharm: Setting up Pycharm</a></li>
@@ -59,7 +59,7 @@
                 <header>
                     <h2 id="Opening a File">Opening a File and Reading its Contents</h2>
                 </header>
-                <pre> <code class="language-python"><p>def getInventoryFile():
+                <pre><code class="language-python"><p>def getInventoryFile():
                                                        
 # Get inventory file and read into a dictionary KEY: product code, VALUE: number of items left on shelf.
 
@@ -77,9 +77,9 @@
 
             <section>
                 <header>
-                    <h2 id="List of Functions">A List of Functions and Arguments</h2>
+                    <h2 id="List Holding Functions">A List Holding Functions and Arguments</h2>
                 </header>
-                <pre><code class="language-python"><p> # bundling functions into a list or dictionary and then calling the functions from the list
+                <pre><code class="language-python"><p># bundling functions into a list or dictionary and then calling the functions from the list
 
 # set of functions
 
@@ -701,11 +701,8 @@ automationEntry.bind('<Return>', lambda event: renameItemProp(itemName)) # the i
     <header>
         <h2 id="">TKinter: Clearing Contents</h2>
     </header>
-    
-    <p>
-    </p>
 
-    <pre><code class="language-python"><p>def clearSpeedoFrame(self):
+    <pre><code class="language-python">def clearSpeedoFrame(self):
 """
 This method clears the main frame (frame2) of all its widgets holding all the speedometers;
 it also clears self.canvases list and the self.labels list so that new objects can be stored
@@ -715,12 +712,7 @@ for widgets in self.frame2.winfo_children():
     widgets.destroy()
     self.canvases.clear()
     self.labels.clear()    
-</p></code></pre>
-
-</section>
-
-
-
+</code></pre>
 
 </section>
 
@@ -754,12 +746,52 @@ for widgets in self.frame2.winfo_children():
         <p>The above method imports all functions from the module x and also requires a prefix of the same name of the module. In the above case like this: x.myFunction</p>
         <a href="https://stackoverflow.com/questions/12270954/difference-between-import-x-and-from-x-import">Various answers to the question of imports</a>
 
+</section>
 
+<section>
+    <header>
+        <h2 id="">TK Docs</h2>
+    </header>
+    
+    <ul>
+    <li><a href="https://tkdocs.com/pyref/">TK Docs</a></li>
+        <li><a href="https://docs.python.org/3/library/tkinter.html#how-do-i-what-option-does">Python Tk Help, figuring out options</a></li>
+        <li><a href="https://www.tcl.tk/man/tcl8.6/TkCmd/contents.htm">Tk Docs</a></li>
+    </ul>
 
-    <pre> <code class="language-python"><p>     
+   
+
+</section>
+
+<section>
+    <header>
+        <h2 id="">TKinter: Basic Entry Widget Returning Input Data</h2>
+    </header>
+    
+    <pre><code class="language-python"><p>import tkinter as tk
+
+def get_input(event):
+    user_input = entry.get()
+    print("User Input:", user_input)
+
+root = tk.Tk()
+
+entry = tk.Entry(root)
+entry.pack()
+entry.bind("<Return>", get_input)
+
+root.mainloop()    
 </p></code></pre>
 
 </section>
+
+
+
+
+
+
+
+
 
 
 
