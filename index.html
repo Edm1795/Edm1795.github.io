@@ -886,7 +886,7 @@ for object in self.automationObjList:  # take each Automation object and instant
     self.buttonList.append(Button(self.frame1, text=object.getName(), width=12, command=object.runAutomation))
 for button in self.buttonList:  # for each button pack it
     button.pack()
-    button.bind("<Button-3>", lambda event, a=button["text"]: self.rightClick(event, a))
+    button.bind("&lt;Button-3&gt;", lambda event, a=button["text"]: self.rightClick(event, a))
 
 # 2. create the right click menu with its items and connect the item needed with its function (deleteItem) which takes the attribute and any other parameters
 def rightClick(self,event,attribute):
