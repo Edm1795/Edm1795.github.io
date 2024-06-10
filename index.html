@@ -51,6 +51,7 @@
             <li><a href="#PYcharm: Line Wrapping">PYcharm: Line Wrapping</a></li>
             <li><a href="#Figuring Out the Source of Problems">Figuring Out the Source of Problems</a></li>
             <li><a href="#Pycharm: Colour Picker">Pycharm: Colour Picker</a></li>
+            <li><a href="#TKinter: Right Click Menus and Attributes">TKinter: Right Click Menus and Attributes</a></li>
         </ul>
     </nav>
 
@@ -783,8 +784,140 @@ entry.bind("<Return>", get_input)
 root.mainloop()    
 </p></code></pre>
 
+<section>
+    <header>
+        <h2 id="">TKinter: Set Right Click Response to a Specific Button</h2>
+    </header>
+    
+
+    <pre><code class="language-python"><p>import tkinter as tk
+
+def on_right_click(event):
+    print("Right click event on the button")
+
+root = tk.Tk()
+button = tk.Button(root, text="Click me!")
+
+# Bind the right mouse button event to the button
+button.bind("&lt;Button-3&gt;", on_right_click)
+
+button.pack()
+root.mainloop()
+             
+</p></code></pre>
+
 </section>
 
+<section>
+    <header>
+        <h2 id="">TKinter: Making a Right Click Menu</h2>
+    </header>
+    
+    <p>Use this in conjunction with the post directly above on right clicking attached to a given button.
+    </p>
+
+    <pre><code class="language-python"><p>import tkinter
+from tkinter import *
+
+root = Tk()
+
+L = Label(root, text ="Right-click to display menu",width = 40, height = 20)
+L.pack()
+
+m = Menu(root, tearoff = 0)
+m.add_command(label ="Cut")
+m.add_command(label ="Copy")
+m.add_command(label ="Paste")
+m.add_command(label ="Reload")
+m.add_separator()
+m.add_command(label ="Rename")
+
+def do_popup(event):
+    try:
+        m.tk_popup(event.x_root, event.y_root)
+    finally:
+        m.grab_release()
+
+L.bind("<Button-3>", do_popup)
+
+mainloop()
+            
+</p></code></pre>
+
+</section>
+
+
+
+
+<section>
+    <header>
+        <h2 id="">HTML: Escape Characters</h2>
+    </header>
+    
+    <p>Some characters are computer code and therefore are easily interpreted by computers as code rather than as text. In this case you have to escape the code interpretation and use a special
+        sequence of characters to ensure the computer gives you text and not code. For example, the &lt; is not inputed as a &lt; but rather as unusual sequence of other characters.
+    </p>
+    <a href="https://mateam.net/html-escape-characters/">List of Escape Characters for HTML</a>
+
+    
+
+</section>
+
+
+
+
+</section>
+
+
+<section>
+    <header>
+        <h2 id="TKinter: Right Click Menus and Attributes">Adding a Right Click Menu to Specific Button while also Securing Attributes from that Button</h2>
+    </header>
+    
+    <p>This important post breaks this process up into 3 parts listed in the comments in the code and highlights crucial aspects for getting access to the attributes of each button without
+        those attributes getting mixed up between the buttons.
+    </p>
+
+    <pre><code class="language-python"><p># 1. Binding a right click to the buttons from a list.
+# The key part inside the binding is to use a lambda function with event and an assignment to the attribute you need (a=button['text'])
+# then include the event and the assigned id (a) into the function for the right click
+        
+for object in self.automationObjList:  # take each Automation object and instantiate a Button
+    self.buttonList.append(Button(self.frame1, text=object.getName(), width=12, command=object.runAutomation))
+for button in self.buttonList:  # for each button pack it
+    button.pack()
+    button.bind("<Button-3>", lambda event, a=button["text"]: self.rightClick(event, a))
+
+# 2. create the right click menu with its items and connect the item needed with its function (deleteItem) which takes the attribute and any other parameters
+def rightClick(self,event,attribute):
+
+self.m = Menu(self.master, tearoff=0)
+self.m.add_command(label="Delete", command=lambda: deleteItem(attribute, self.deletedAutomations,self.automationObjList,mainWin))
+self.m.add_command(label="Copy")
+self.m.add_command(label="Paste")
+self.m.add_command(label="Reload")
+self.m.add_separator()
+self.m.add_command(label="Rename")
+
+self.m.post(event.x_root, event.y_root)
+
+# 3.  This is the function itself that does the work needed.
+def deleteItem(attribute,deletedAutomations,automationObjList,mainWin):
+print('delete item accessed')
+print('attribute is:',attribute)
+c=0
+for object in automationObjList:
+    if object.getName()==attribute:
+        deletedAutomations=automationObjList.pop(c)
+        print("item deleted")
+        saveFile(automationObjList, "Automations")
+        mainWin.clearButtons()
+        mainWin.loadButtons()
+    else:
+        c+=1
+</p></code></pre>
+
+</section>
 
 
 
