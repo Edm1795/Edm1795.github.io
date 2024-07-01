@@ -36,6 +36,8 @@
             <li><a href="#Running Python in the Terminal">Python: Running Python in the Terminal</a></li>
             <li><a href="#Pyscript: Running Python in a Browser">Pyscript: Running Python in a Browser</a></li>
             <li><a href="#Running TKinter Live">TKinter: Running TKinter Live</a></li>
+            <li><a href="#Tkinter: Transparent Window with a Line">Tkinter: Transparent Window with a Line</a></li>
+            <li><a href="TKinter: Fully Transparent Window with Solid Objects Over Top of the Window">TKinter: Fully Transparent Window with Solid Objects Over Top of the Window</a></li>
             <li><a href="#Customizing Prism.JS Stylings">Prism: Customizing Prism.JS Stylings</a></li>
             <li><a href="#Pycharm Tips">Pycharm: Tips</a></li>
             <li><a href="#Automation Program Flow Kernal">Python: Automation Program Flow Kernal</a></li>
@@ -256,6 +258,83 @@ root.wm_attributes('-alpha', 0.9)
 
 root.wm_attributes('fullscreen',True)</p></code></pre>
             </section>
+
+
+
+<section>
+    <header>
+        <h2 id="Tkinter: Transparent Window with a Line">Tkinter: Transparent Window with a Line</h2>
+    </header>
+    
+    <p><ul>
+        <li><a href="https://stackoverflow.com/questions/41773962/what-are-screen-units-in-tkinter">Tkinter Screen Units vs Pixels</a></li>
+    </ul>
+    </p>
+
+    <pre><code class="language-python"><p>from tkinter import *
+# This makes the window and any objects on the window as well all transparent, therefore the line will also be transparent
+# Create object
+root = Tk()
+
+# Adjust size
+root.geometry("600x500")
+
+# Create transparent window
+root.attributes('-alpha',0.5)
+
+x1,x2=400,400
+y1=100
+y2=200
+
+canvas=Canvas(root)
+canvas.pack(pady=0,padx=0,fill=BOTH, expand=True)
+canvas.create_line(x1,y1,x2,y2,width='10',fill='green') # Screen units are inputed as strings; pixels are inputed an numbers. Screen units are absolute distances such as mm or cm eg:10m
+
+# Execute tkinter
+root.mainloop() # do not run this line if running this in a console realtime mode     
+</p></code></pre>
+
+</section>
+
+<section>
+    <header>
+        <h2 id="TKinter: Fully Transparent Window with Solid Objects Over Top of the Window">TKinter: Fully Transparent Window with Solid Objects Over Top of the Window</h2>
+    </header>
+    
+
+    <pre><code class="language-python"><p>
+from tkinter import *
+
+# Create object
+root = Tk()
+
+# Adjust size
+# root.geometry("600x500")
+root.attributes('-fullscreen', True)
+# Create transparent window
+# root.attributes('-alpha',0.5)
+
+root.wm_attributes('-transparentcolor','white') # make viewable window transparent
+
+# highlibackgrnd--just like a border, make white so it goes transparent. This makes the canvas completely transparent but not anything on it which is other than white
+
+
+
+x1,x2=0,0
+y1=0
+y2=1080
+
+# canvas=Canvas(root)
+canvas = Canvas(root, bg="white",highlightbackground="white")
+canvas.pack(pady=0,padx=0,fill=BOTH, expand=True)
+
+canvas.create_line(x1,y1,x2,y2,width=580,fill='green') # Screen units are inputed as strings; pixels are inputed an numbers. Screen units are absolute distances such as mm or cm eg:10m
+
+# Execute tkinter
+root.mainloop() # do not run this line if running this in a console realtime mode     
+</p></code></pre>
+
+</section>
 
             <section>
                 <header>
